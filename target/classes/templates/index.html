@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - InfoBox</title>
+    <script src="/js/jquery-3.5.1.min.js"></script>
+
+    <!--    Chosen Multiple Select   -->
+    <link rel="stylesheet" href="js/chosen/chosen.min.css">
+    <script src="js/chosen/chosen.jquery.min.js"></script>
+
+    <!--    Datatable     -->
+    <script src="js/datatable/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="js/datatable/jquery.dataTables.min.css">
+
+    <!--    Bootstrap     -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f3f3f3;
+        }
+
+        .container-fluid {
+            background-image: url('img/food_banner.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 500px;
+            filter: blur();
+        }
+
+        .quote {
+            color: white;
+        }
+
+        li a {
+            color: white !important;
+            font-weight: bolder;
+        }
+
+        td {
+            word-wrap: break-word;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-transparent">
+        <div class="container">
+            <img src="img/infobox-logo.png" class="navbar-brand" style="width: 20%;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/explore">Explore amenities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about_us">About us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br/>
+    <div class="text-center">
+        <!--            ############## Quote #################             -->
+        <p class="h1 quote" th:text="${quote}"></p>
+    </div>
+    <br><br>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <!--                ova beshe form-->
+            <form th:method="post" th:action="@{/}">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <!--                            <input class="form-control form-control-lg form-control-borderless"-->
+                        <!--                                   type="search" placeholder="What would you like to eat?">-->
+                        <input type="text" name="searchItems" id="itemsTest" style="visibility: hidden; display: none;">
+                        <select data-placeholder="Choose..." multiple
+                                class="chosen-select form-control form-control-lg form-control-borderless">
+                            <option value="burger">Burger</option>
+                            <option value="regional">Regional</option>
+                            <option value="ice_cream">Ice cream</option>
+                            <option value="grill">Grill</option>
+                            <option value="crepe">Crepe</option>
+                            <option value="coffee_shop">Coffee shop</option>
+                            <option value="balkan">Balkan</option>
+                            <option value="pancake">Pancake</option>
+                            <option value="chicken">Chicken</option>
+                            <option value="diner">Diner</option>
+                            <option value="fish">Fish</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="tea">Tea</option>
+                            <option value="sausage">Sausage</option>
+                            <option value="local">Local</option>
+                            <option value="fine_dining">Fine dining</option>
+                            <option value="kebab">Kebab</option>
+                            <option value="barbecue">Barbecue</option>
+                            <option value="greek">Greek</option>
+                            <option value="asian">Asian</option>
+                            <option value="mediterranean">Mediterranean</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="beef_bowl">Beef bowl</option>
+                            <option value="american">American</option>
+                            <option value="pizza">Pizza</option>
+                            <option value="cake">Cake</option>
+                            <option value="pasta">Pasta</option>
+                            <option value="french">French</option>
+                            <option value="italian_pizza">Italian pizza</option>
+                            <option value="seafood">Seafood</option>
+                            <option value="sandwich">Sandwich</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="croatian">Croatian</option>
+                            <option value="italian">Italian</option>
+                            <option value="steak_house">Steak house</option>
+                            <option value="waffle">Waffle</option>
+                            <option value="Latin_American">Latin american</option>
+                            <option value="buschenschank">Buschenschank</option>
+                            <option value="international">International</option>
+                            <option value="thai">Thai</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="sushi">Sushi</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="turkish">Turkish</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="bakery">Bakery</option>
+                            <option value="savory_pancakes">Savory pancakes</option>
+                            <option value="german">German</option>
+                            <option value="fish_and_chips">Fish and chips</option>
+                            <option value="ramen">Ramen</option>
+                            <option value="mixed">Mixed</option>
+                            <option value="irish">Irish</option>
+                            <option value="macedonian">Macedonian</option>
+                            <option value="barbecue">Barbecue</option>
+                            <option value="coffee">Coffee</option>
+                            <option value="cold_drinks">Cold drinks</option>
+                        </select>
+
+
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-lg btn-success" onclick="postItems()">Search</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <!--end of col-->
+    </div>
+</div>
+<!--    <div id="example-table"></div>-->
+
+
+    <th:block th:if="${hasTable}">
+        <br>
+        <table id="dataTable" class="container">
+            <thead>
+                <tr>
+                    <th>Name:</th>
+                    <th>Amenity:</th>
+                    <th>Cuisine:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="item: ${tableData}">
+                    <tr>
+                        <td><a th:href="@{'/explore?'(id=${item.getId()})}" th:text="${item.getName()}"></a></td>
+                        <td th:text="${item.getAmenity()}"></td>
+                        <td th:text='${item.getCuisine().replaceAll(";", ", ").replaceAll("_", " ")}' id="cuisine"></td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+    </th:block>
+<!--    <span id="passDataForTable" th:attr="data-items=${items}"></span>-->
+</body>
+<script>
+    $(".chosen-select").chosen().change(function() {
+        document.getElementById("itemsTest").value = $(".chosen-select").val().join(";");
+    });
+
+
+    $("#dataTable").DataTable();
+
+
+
+
+</script>
+</html>
