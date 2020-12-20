@@ -1,6 +1,6 @@
 
 // ako ne raboti api-ot treba da se stavi adresata na host-ot bez / na kraj
-var hostIP = "http://localhost:8080";
+var hostIP = "https://infobox.herokuapp.com";
 
 
 
